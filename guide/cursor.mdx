@@ -1,0 +1,36 @@
+---
+title: Cursor 中使用
+description: '在 Cursor 编辑器中配置 QClaw Router'
+icon: 'i-cursor'
+---
+
+# Cursor 中使用
+
+Cursor 是基于 VSCode 的 AI 代码编辑器，支持自定义 API 端点。
+
+## 配置步骤
+
+### 1. 打开设置
+
+`Cursor Settings` → `Models` → `OpenAI API Key`
+
+### 2. 填写配置
+
+- **OpenAI API Key**: 输入您的 QClaw Router 令牌 `sk-your-api-key`
+- **Override OpenAI Base URL**: `https://api.qclawrouter.com/v1`
+
+### 3. 选择模型
+
+在 Cursor 的模型选择器中，手动输入要使用的模型名称：
+
+- `gpt-4o`
+- `claude-sonnet-4-5-20250514`
+- `gemini-2.5-pro`
+
+### 4. 开始使用
+
+使用 `Cmd+K`（内联编辑）或 `Cmd+L`（对话）即可调用。
+
+<Tip>
+Cursor 的 Tab 自动补全功能可能需要使用特定的模型。建议使用 `gpt-4o` 或 `claude-sonnet-4-5-20250514` 获得最佳体验。
+</Tip>

@@ -1,0 +1,66 @@
+---
+title: VSCode 中使用
+description: '在 VSCode 中配置 QClaw Router'
+icon: 'code'
+---
+
+# VSCode 中使用
+
+在 VSCode 中通过 AI 扩展（如 Continue、Cline、GitHub Copilot 等）使用 QClaw Router。
+
+## Continue 扩展
+
+[Continue](https://continue.dev/) 是最流行的开源 AI 编程助手。
+
+### 1. 安装 Continue
+
+在 VSCode 扩展市场搜索 **Continue** 并安装。
+
+### 2. 配置 QClaw Router
+
+打开 Continue 配置文件 `~/.continue/config.json`，修改 models 部分：
+
+```json
+{
+  "models": [
+    {
+      "title": "Claude Sonnet 4.5",
+      "provider": "openai",
+      "model": "claude-sonnet-4-5-20250514",
+      "apiBase": "https://api.qclawrouter.com/v1",
+      "apiKey": "sk-your-api-key"
+    },
+    {
+      "title": "GPT-4o",
+      "provider": "openai",
+      "model": "gpt-4o",
+      "apiBase": "https://api.qclawrouter.com/v1",
+      "apiKey": "sk-your-api-key"
+    }
+  ]
+}
+```
+
+### 3. 开始使用
+
+按 `Cmd+L`（Mac）或 `Ctrl+L`（Windows/Linux）打开 Continue 对话框。
+
+## Cline 扩展
+
+### 1. 安装 Cline
+
+在 VSCode 扩展市场搜索 **Cline** 并安装。
+
+### 2. 配置
+
+打开 Cline 设置：
+- **API Provider**: 选择 `OpenAI Compatible`
+- **Base URL**: `https://api.qclawrouter.com/v1`
+- **API Key**: 输入您的 QClaw Router 令牌
+- **Model**: 选择要使用的模型，如 `claude-sonnet-4-5-20250514`
+
+## GitHub Copilot（自定义模型）
+
+<Warning>
+GitHub Copilot 目前不支持自定义 API 端点，无法直接对接 QClaw Router。建议使用 Continue 或 Cline 作为替代。
+</Warning>

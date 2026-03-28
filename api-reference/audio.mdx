@@ -1,0 +1,74 @@
+---
+title: 语音相关
+description: 'Audio API - 语音合成与识别'
+icon: 'microphone'
+---
+
+# 语音相关
+
+## 语音合成 (TTS)
+
+`POST /v1/audio/speech`
+
+将文本转换为语音。
+
+### 请求示例
+
+<CodeGroup>
+
+```python Python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://api.qclawrouter.com/v1",
+    api_key="sk-your-api-key"
+)
+
+response = client.audio.speech.create(
+    model="tts-1",
+    voice="alloy",
+    input="你好，欢迎使用 QClaw Router！"
+)
+
+response.stream_to_file("output.mp3")
+```
+
+```bash cURL
+curl https://api.qclawrouter.com/v1/audio/speech \
+  -H "Authorization: Bearer sk-your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "tts-1",
+    "voice": "alloy",
+    "input": "你好，欢迎使用 QClaw Router！"
+  }' \
+  --output output.mp3
+```
+
+</CodeGroup>
+
+### 可用语音
+
+| 语音 | 特点 |
+|------|------|
+| `alloy` | 中性 |
+| `echo` | 男性 |
+| `fable` | 英式 |
+| `onyx` | 深沉 |
+| `nova` | 女性 |
+| `shimmer` | 温暖 |
+
+## 语音识别 (STT)
+
+`POST /v1/audio/transcriptions`
+
+将音频文件转换为文本。
+
+```python
+audio_file = open("recording.mp3", "rb")
+transcript = client.audio.transcriptions.create(
+    model="whisper-1",
+    file=audio_file
+)
+print(transcript.text)
+```

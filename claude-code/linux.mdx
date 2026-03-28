@@ -1,0 +1,53 @@
+---
+title: Linux 安装
+description: '在 Linux 上安装和配置 Claude Code'
+icon: 'linux'
+---
+
+# Linux 安装 Claude Code
+
+## 前置要求
+
+- Ubuntu 20.04+ / Debian 11+ / CentOS 8+ 或其他主流发行版
+- Node.js 18+
+
+```bash
+# Ubuntu/Debian
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# 或使用 nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+nvm install 20
+```
+
+## 安装步骤
+
+### 1. 安装 Claude Code
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+### 2. 配置 QClaw Router
+
+```bash
+# 添加到 ~/.bashrc
+echo 'export ANTHROPIC_BASE_URL="https://api.qclawrouter.com"' >> ~/.bashrc
+echo 'export ANTHROPIC_API_KEY="sk-your-api-key"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+### 3. 启动
+
+```bash
+claude
+```
+
+## 在服务器上使用
+
+如果在无桌面的 Linux 服务器上使用，Claude Code 以纯终端模式运行，所有功能正常。
+
+<Tip>
+建议使用 `tmux` 或 `screen` 保持会话，防止 SSH 断开后丢失工作。
+</Tip>

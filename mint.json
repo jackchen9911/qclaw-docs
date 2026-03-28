@@ -1,0 +1,88 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "QClaw Router",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#4f8fff",
+    "light": "#6ba3ff",
+    "dark": "#3a7ae8",
+    "anchors": {
+      "from": "#4f8fff",
+      "to": "#7c5cfc"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "控制台",
+      "url": "https://api.qclawrouter.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "免费注册",
+    "url": "https://api.qclawrouter.com/register"
+  },
+  "tabs": [
+    {
+      "name": "API 参考",
+      "url": "api-reference"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "官方网站",
+      "icon": "globe",
+      "url": "https://api.qclawrouter.com"
+    },
+    {
+      "name": "模型定价",
+      "icon": "tags",
+      "url": "https://api.qclawrouter.com/pricing"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "快速开始",
+      "pages": [
+        "introduction",
+        "pricing",
+        "register",
+        "create-token"
+      ]
+    },
+    {
+      "group": "Claude Code",
+      "pages": [
+        "claude-code/windows",
+        "claude-code/macos",
+        "claude-code/linux",
+        "claude-code/cc-switch"
+      ]
+    },
+    {
+      "group": "使用指南",
+      "pages": [
+        "guide/vscode",
+        "guide/cli",
+        "guide/cursor",
+        "guide/chatbox"
+      ]
+    },
+    {
+      "group": "API 参考",
+      "pages": [
+        "api-reference/overview",
+        "api-reference/chat",
+        "api-reference/image",
+        "api-reference/video",
+        "api-reference/audio"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com"
+  }
+}

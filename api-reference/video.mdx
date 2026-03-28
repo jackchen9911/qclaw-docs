@@ -1,0 +1,57 @@
+---
+title: 视频生成
+description: 'Video Generation API（异步任务）'
+icon: 'video'
+---
+
+# 视频生成
+
+视频生成采用 **异步任务** 机制：提交任务 → 轮询状态 → 获取结果。
+
+## 可用模型
+
+| 模型 | 功能 | 参考价格 |
+|------|------|----------|
+| Sora 2 | 文生视频 / 图生视频 | ~$0.25/视频 |
+| VEO 3.1 | 视频生成（含音频同步） | ~$0.90/视频 |
+| Kling 3.0 | 文生视频 / 图生视频 / 运动控制 | ~$0.18/视频 |
+| Wan 2.6 | 文生视频 / 视频转视频 | ~$0.12/视频 |
+| Hailuo 2.3 | 文生视频 / 图生视频 | 按量计费 |
+
+## 使用流程
+
+### 1. 提交任务
+
+```bash
+curl https://api.qclawrouter.com/v1/videos/generations \
+  -H "Authorization: Bearer sk-your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "sora-2",
+    "prompt": "一只金毛在海滩上奔跑，慢动作，电影质感"
+  }'
+```
+
+### 2. 查询状态
+
+```bash
+curl https://api.qclawrouter.com/v1/videos/generations/{task_id} \
+  -H "Authorization: Bearer sk-your-api-key"
+```
+
+### 3. 获取结果
+
+任务完成后，响应中会包含视频的下载链接。
+
+## 任务状态
+
+| 状态 | 说明 |
+|------|------|
+| `pending` | 排队中 |
+| `processing` | 生成中 |
+| `completed` | 已完成，可下载 |
+| `failed` | 生成失败 |
+
+<Tip>
+视频生成通常需要 1-5 分钟。可以通过 Webhook 接收完成通知，无需反复轮询。
+</Tip>
