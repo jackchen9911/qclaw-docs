@@ -1,6 +1,6 @@
 ---
 title: "Claude Code 配置指南"
-description: "在 Claude Code 中使用 QClaw Router 作为 API 后端"
+description: "在 Claude Code 中使用 YourAPI 作为 API 后端"
 ---
 
 ## 准备工作
@@ -21,17 +21,17 @@ description: "在 Claude Code 中使用 QClaw Router 作为 API 后端"
 
    或访问 [Claude Code 官方文档](https://docs.anthropic.com/claude-code) 获取最新安装方式
 
-2. **已获取 QClaw Router API 密钥**
+2. **已获取 YourAPI API 密钥**
 
-   登录 [QClaw Router 控制台](https://qclawrouter.com/dashboard) 获取您的 API 密钥（以 `sk-` 开头）
+   登录 [YourAPI 控制台](https://yourapi.com/dashboard) 获取您的 API 密钥（以 `sk-` 开头）
 
 <Tip>
-  如果还没有 QClaw Router 账户，请先在 [QClaw Router](https://qclawrouter.com) 注册并获取 API 密钥。
+  如果还没有 YourAPI 账户，请先在 [YourAPI](https://yourapi.com) 注册并获取 API 密钥。
 </Tip>
 
 ## 配置方式
 
-Claude Code 支持多种方式配置自定义 API 端点，您可以将 QClaw Router 作为 Anthropic API 的替代后端。Claude Code 使用两个不同的 JSON 文件：**onboarding 状态** 与 **环境变量** 需分别写入对应文件才能生效。
+Claude Code 支持多种方式配置自定义 API 端点，您可以将 YourAPI 作为 Anthropic API 的替代后端。Claude Code 使用两个不同的 JSON 文件：**onboarding 状态** 与 **环境变量** 需分别写入对应文件才能生效。
 
 ### 先确认 onboarding 已完成
 
@@ -53,7 +53,7 @@ Claude Code 支持多种方式配置自定义 API 端点，您可以将 QClaw Ro
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "sk-xxxxxxxxxxxx",
-    "ANTHROPIC_BASE_URL": "https://api.qclawrouter.com"
+    "ANTHROPIC_BASE_URL": "https://api.yourapi.com"
   }
 }
 ```
@@ -73,7 +73,7 @@ mkdir -p ~/.claude
 ```json
 {
   "env": {
-    "ANTHROPIC_BASE_URL": "https://api.qclawrouter.com"
+    "ANTHROPIC_BASE_URL": "https://api.yourapi.com"
   }
 }
 ```
@@ -92,7 +92,7 @@ mkdir -p ~/.claude
 
 ```bash
 export ANTHROPIC_AUTH_TOKEN="sk-xxxxxxxxxxxx"
-export ANTHROPIC_BASE_URL="https://api.qclawrouter.com"
+export ANTHROPIC_BASE_URL="https://api.yourapi.com"
 claude
 ```
 
@@ -100,7 +100,7 @@ claude
 
 ```bash
 export ANTHROPIC_AUTH_TOKEN="sk-xxxxxxxxxxxx"
-export ANTHROPIC_BASE_URL="https://api.qclawrouter.com"
+export ANTHROPIC_BASE_URL="https://api.yourapi.com"
 ```
 
 然后执行：
@@ -115,7 +115,7 @@ source ~/.zshrc  # 或 source ~/.bashrc
 
 ```powershell
 $env:ANTHROPIC_AUTH_TOKEN = "sk-xxxxxxxxxxxx"
-$env:ANTHROPIC_BASE_URL = "https://api.qclawrouter.com"
+$env:ANTHROPIC_BASE_URL = "https://api.yourapi.com"
 claude
 ```
 
@@ -123,7 +123,7 @@ claude
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "sk-xxxxxxxxxxxx", "User")
-[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.qclawrouter.com", "User")
+[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.yourapi.com", "User")
 ```
 
 ### 方式三：使用 .env 文件
@@ -132,7 +132,7 @@ claude
 
 ```
 ANTHROPIC_AUTH_TOKEN=sk-xxxxxxxxxxxx
-ANTHROPIC_BASE_URL=https://api.qclawrouter.com
+ANTHROPIC_BASE_URL=https://api.yourapi.com
 ```
 
 <Warning>
@@ -143,8 +143,8 @@ ANTHROPIC_BASE_URL=https://api.qclawrouter.com
 
 | 配置项 | 填写内容 |
 |--------|----------|
-| **ANTHROPIC_AUTH_TOKEN** | 您的 QClaw Router API 密钥（`sk-xxxxxxxxxxxx`） |
-| **ANTHROPIC_BASE_URL** | `https://api.qclawrouter.com` |
+| **ANTHROPIC_AUTH_TOKEN** | 您的 YourAPI API 密钥（`sk-xxxxxxxxxxxx`） |
+| **ANTHROPIC_BASE_URL** | `https://api.yourapi.com` |
 
 ## 验证配置
 
@@ -160,11 +160,11 @@ claude --version
 claude
 ```
 
-如果配置正确，Claude Code 将通过 QClaw Router 连接到 Claude 模型并正常响应。
+如果配置正确，Claude Code 将通过 YourAPI 连接到 Claude 模型并正常响应。
 
 ## 推荐模型
 
-通过 QClaw Router 您可以使用以下 Claude 模型：
+通过 YourAPI 您可以使用以下 Claude 模型：
 
 | 模型名称 | 模型 ID | 特点 |
 |----------|---------|------|
@@ -184,13 +184,13 @@ claude --model claude-sonnet-4-6
   <Accordion title="Q1: 出现 Authentication error 或 401 Unauthorized？">
     **解决方案：**
     1. 检查 `ANTHROPIC_AUTH_TOKEN` 是否正确设置，确认以 `sk-` 开头
-    2. 在 [QClaw Router 控制台](https://qclawrouter.com/dashboard) 确认密钥未过期
+    2. 在 [YourAPI 控制台](https://yourapi.com/dashboard) 确认密钥未过期
     3. 确认账户余额充足
   </Accordion>
   <Accordion title="Q2: 出现 Connection refused 或无法连接？">
     **解决方案：**
-    1. 确认 `ANTHROPIC_BASE_URL` 设置为 `https://api.qclawrouter.com`
-    2. 检查网络连接，确保能访问 `https://api.qclawrouter.com`
+    1. 确认 `ANTHROPIC_BASE_URL` 设置为 `https://api.yourapi.com`
+    2. 检查网络连接，确保能访问 `https://api.yourapi.com`
   </Accordion>
   <Accordion title="Q3: 如何查看当前环境变量配置？">
     ```bash
@@ -239,7 +239,7 @@ Claude Code 能够读取和修改项目文件，常用场景：
 
 ## 支持与帮助
 
-- 📚 [QClaw Router 文档中心](https://docs.qclawrouter.com)
+- 📚 [YourAPI 文档中心](https://docs.yourapi.com)
 - 📚 [Claude Code 官方文档](https://docs.anthropic.com/claude-code)
-- 💬 [Discord 社区](https://discord.gg/qclawrouter)
-- 🐦 [Twitter @qclawrouter](https://x.com/qclawrouter)
+- 💬 [Discord 社区](https://discord.gg/yourapi)
+- 🐦 [Twitter @yourapi](https://x.com/yourapi)

@@ -1,0 +1,27 @@
+---
+title: "Flux 2.0"
+description: "Black Forest Labs Flux 2.0 图像生成模型，高质量图像输出。"
+---
+
+## 概览
+
+Black Forest Labs Flux 2.0 图像生成模型，高质量图像输出。
+
+- **模型名称**：`flux-2.0`
+- **接口端点**：`POST /v1/images/generations`
+- **任务类型**：异步任务
+
+## 快速开始
+
+```bash
+curl -X POST https://api.yourapi.com/v1/images/generations \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "flux-2.0",
+    "prompt": "未来城市的天际线，霓虹灯光",
+    "n": 1
+  }'
+```
+
+查看完整参数说明，请点击左侧导航中的接口文档。

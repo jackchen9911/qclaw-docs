@@ -1,7 +1,7 @@
 ---
 title: "Veo3 视频生成"
 description: "使用 Google Veo 3 模型生成视频，支持音频同步"
-api: "POST https://api.qclawrouter.com/v1/video/generations"
+api: "POST https://api.yourapi.com/v1/video/generations"
 ---
 
 - Google Veo 3 视频生成模型
@@ -14,7 +14,7 @@ api: "POST https://api.qclawrouter.com/v1/video/generations"
 
 <CodeGroup>
 ```bash 文生视频
-curl -X POST https://api.qclawrouter.com/v1/video/generations \
+curl -X POST https://api.yourapi.com/v1/video/generations \
   -H "Authorization: Bearer your-api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -25,7 +25,7 @@ curl -X POST https://api.qclawrouter.com/v1/video/generations \
 ```
 
 ```bash 图生视频
-curl -X POST https://api.qclawrouter.com/v1/video/generations \
+curl -X POST https://api.yourapi.com/v1/video/generations \
   -H "Authorization: Bearer your-api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -40,7 +40,7 @@ curl -X POST https://api.qclawrouter.com/v1/video/generations \
 import requests
 
 response = requests.post(
-    "https://api.qclawrouter.com/v1/video/generations",
+    "https://api.yourapi.com/v1/video/generations",
     headers={"Authorization": "Bearer your-api-key"},
     json={
         "model": "veo-3",
@@ -115,7 +115,7 @@ print("任务ID:", task["id"])
   "task_id": "task_video_abc123",
   "status": "completed",
   "output": {
-    "url": "https://cdn.qclawrouter.com/videos/abc123.mp4",
+    "url": "https://cdn.yourapi.com/videos/abc123.mp4",
     "duration": 5,
     "resolution": "1080p"
   }

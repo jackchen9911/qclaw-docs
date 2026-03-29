@@ -1,7 +1,7 @@
 ---
 title: "GPT-4o 图像生成"
 description: "使用 OpenAI GPT-4o 模型生成高质量图像，支持精确的文字渲染"
-api: "POST https://api.qclawrouter.com/v1/images/generations"
+api: "POST https://api.yourapi.com/v1/images/generations"
 ---
 
 - OpenAI GPT-4o 图像生成模型
@@ -18,7 +18,7 @@ api: "POST https://api.qclawrouter.com/v1/images/generations"
 
 <CodeGroup>
 ```bash 文生图
-curl -X POST https://api.qclawrouter.com/v1/images/generations \
+curl -X POST https://api.yourapi.com/v1/images/generations \
   -H "Authorization: Bearer your-api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -34,7 +34,7 @@ curl -X POST https://api.qclawrouter.com/v1/images/generations \
 ```
 
 ```bash 图生图
-curl -X POST https://api.qclawrouter.com/v1/images/generations \
+curl -X POST https://api.yourapi.com/v1/images/generations \
   -H "Authorization: Bearer your-api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -52,7 +52,7 @@ curl -X POST https://api.qclawrouter.com/v1/images/generations \
 import requests
 
 response = requests.post(
-    "https://api.qclawrouter.com/v1/images/generations",
+    "https://api.yourapi.com/v1/images/generations",
     headers={"Authorization": "Bearer your-api-key"},
     json={
         "model": "gpt-4o-image",

@@ -1,7 +1,7 @@
 ---
 title: "获取视频任务状态"
 description: "查询视频生成异步任务的状态和结果"
-api: "GET https://api.qclawrouter.com/v1/task/{task_id}"
+api: "GET https://api.yourapi.com/v1/task/{task_id}"
 ---
 
 ## 说明
@@ -11,7 +11,7 @@ api: "GET https://api.qclawrouter.com/v1/task/{task_id}"
 ## 请求示例
 
 ```bash cURL
-curl https://api.qclawrouter.com/v1/task/task_xxx \
+curl https://api.yourapi.com/v1/task/task_xxx \
   -H "Authorization: Bearer your-api-key"
 ```
 
@@ -23,7 +23,7 @@ def wait_for_video(task_id, api_key):
     headers = {"Authorization": f"Bearer {api_key}"}
     while True:
         resp = requests.get(
-            f"https://api.qclawrouter.com/v1/task/{task_id}",
+            f"https://api.yourapi.com/v1/task/{task_id}",
             headers=headers
         )
         data = resp.json()
@@ -42,7 +42,7 @@ def wait_for_video(task_id, api_key):
   "task_id": "task_xxx",
   "status": "succeeded",
   "output": {
-    "url": "https://cdn.qclawrouter.com/videos/xxx.mp4",
+    "url": "https://cdn.yourapi.com/videos/xxx.mp4",
     "duration": 5,
     "resolution": "1080p"
   }

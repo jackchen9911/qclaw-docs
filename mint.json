@@ -89,78 +89,91 @@
         {
           "group": "Gemini-3-Pro-Image-preview（Nano banana Pro）",
           "pages": [
+            "cn/api-reference/images/gemini-3-pro-image/index",
             "cn/api-reference/images/gemini-3-pro-image/generation"
           ]
         },
         {
           "group": "Gemini-3.1-Flash-Image-preview（Nano banana2）",
           "pages": [
+            "cn/api-reference/images/gemini-3-1-flash/index",
             "cn/api-reference/images/gemini-3-1-flash/generation"
           ]
         },
         {
           "group": "Gemini-2.5-Flash-Image-preview（Nano banana）",
           "pages": [
+            "cn/api-reference/images/gemini-2-5-flash/index",
             "cn/api-reference/images/gemini-2-5-flash/generation"
           ]
         },
         {
           "group": "Gemini-3-Pro-Image Official",
           "pages": [
+            "cn/api-reference/images/gemini-3-pro-official/index",
             "cn/api-reference/images/gemini-3-pro-official/generation"
           ]
         },
         {
           "group": "Gemini-3.1-Flash-Image Official",
           "pages": [
+            "cn/api-reference/images/gemini-3-1-flash-official/index",
             "cn/api-reference/images/gemini-3-1-flash-official/generation"
           ]
         },
         {
           "group": "Gemini-2.5-Flash-Image Official",
           "pages": [
+            "cn/api-reference/images/gemini-2-5-flash-official/index",
             "cn/api-reference/images/gemini-2-5-flash-official/generation"
           ]
         },
         {
           "group": "GPT-4o-image",
           "pages": [
+            "cn/api-reference/images/gpt-4o-image/index",
             "cn/api-reference/images/gpt-4o-image/generation"
           ]
         },
         {
           "group": "Seedream-4.0",
           "pages": [
+            "cn/api-reference/images/seedream-4-0/index",
             "cn/api-reference/images/seedream-4-0/generation"
           ]
         },
         {
           "group": "Seedream-4.5",
           "pages": [
+            "cn/api-reference/images/seedream-4-5/index",
             "cn/api-reference/images/seedream-4-5/generation"
           ]
         },
         {
           "group": "Seedream-5.0",
           "pages": [
+            "cn/api-reference/images/seedream-5-0/index",
             "cn/api-reference/images/seedream-5-0/generation"
           ]
         },
         {
           "group": "Flux Kontext",
           "pages": [
+            "cn/api-reference/images/flux-kontext/index",
             "cn/api-reference/images/flux-kontext/generation"
           ]
         },
         {
           "group": "Flux 2.0",
           "pages": [
+            "cn/api-reference/images/flux-2-0/index",
             "cn/api-reference/images/flux-2-0/generation"
           ]
         },
         {
           "group": "Grok Image",
           "pages": [
+            "cn/api-reference/images/grok-image/index",
             "cn/api-reference/images/grok-image/generation"
           ]
         }
@@ -172,90 +185,105 @@
         {
           "group": "Sora2",
           "pages": [
+            "cn/api-reference/videos/sora2/index",
             "cn/api-reference/videos/sora2/generation"
           ]
         },
         {
           "group": "Sora 2 Official (Azure)",
           "pages": [
+            "cn/api-reference/videos/sora2-official/index",
             "cn/api-reference/videos/sora2-official/generation"
           ]
         },
         {
           "group": "Veo3",
           "pages": [
+            "cn/api-reference/videos/veo3/index",
             "cn/api-reference/videos/veo3/generation"
           ]
         },
         {
           "group": "Veo3 Official",
           "pages": [
+            "cn/api-reference/videos/veo3-official/index",
             "cn/api-reference/videos/veo3-official/generation"
           ]
         },
         {
           "group": "doubao-seedance-1-0-pro",
           "pages": [
+            "cn/api-reference/videos/doubao-seedance-1-0-pro/index",
             "cn/api-reference/videos/doubao-seedance-1-0-pro/generation"
           ]
         },
         {
           "group": "doubao-seedance-1-5-pro",
           "pages": [
+            "cn/api-reference/videos/doubao-seedance-1-5-pro/index",
             "cn/api-reference/videos/doubao-seedance-1-5-pro/generation"
           ]
         },
         {
           "group": "MiniMax-Hailuo-02",
           "pages": [
+            "cn/api-reference/videos/minimax-hailuo-02/index",
             "cn/api-reference/videos/minimax-hailuo-02/generation"
           ]
         },
         {
           "group": "Wan2.6",
           "pages": [
+            "cn/api-reference/videos/wan2-6/index",
             "cn/api-reference/videos/wan2-6/generation"
           ]
         },
         {
           "group": "Kling v2.6",
           "pages": [
+            "cn/api-reference/videos/kling-v2-6/index",
             "cn/api-reference/videos/kling-v2-6/generation"
           ]
         },
         {
           "group": "Kling v3",
           "pages": [
+            "cn/api-reference/videos/kling-v3/index",
             "cn/api-reference/videos/kling-v3/generation"
           ]
         },
         {
           "group": "Kling v3 Omni",
           "pages": [
+            "cn/api-reference/videos/kling-v3-omni/index",
             "cn/api-reference/videos/kling-v3-omni/generation"
           ]
         },
         {
           "group": "Kling Video O1",
           "pages": [
+            "cn/api-reference/videos/kling-video-o1/index",
             "cn/api-reference/videos/kling-video-o1/generation"
           ]
         },
         {
           "group": "MiniMax-Hailuo-2.3",
           "pages": [
+            "cn/api-reference/videos/minimax-hailuo-2-3/index",
             "cn/api-reference/videos/minimax-hailuo-2-3/generation"
           ]
         },
         {
           "group": "Vidu Q3 Pro",
           "pages": [
+            "cn/api-reference/videos/vidu-q3-pro/index",
             "cn/api-reference/videos/vidu-q3-pro/generation"
           ]
         },
         {
           "group": "Grok Video",
           "pages": [
+            "cn/api-reference/videos/grok-video/index",
             "cn/api-reference/videos/grok-video/generation"
           ]
         }

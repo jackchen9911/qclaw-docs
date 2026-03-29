@@ -1,7 +1,7 @@
 ---
 title: "Sora 2 Official (Azure) 视频生成"
 description: "通过 Azure 官方直连的 OpenAI Sora 2 视频生成，稳定性最高"
-api: "POST https://api.qclawrouter.com/v1/video/generations"
+api: "POST https://api.yourapi.com/v1/video/generations"
 ---
 
 - Azure OpenAI 官方直连，稳定性与合规性最高
@@ -13,7 +13,7 @@ api: "POST https://api.qclawrouter.com/v1/video/generations"
 
 <CodeGroup>
 ```bash 文生视频
-curl -X POST https://api.qclawrouter.com/v1/video/generations \
+curl -X POST https://api.yourapi.com/v1/video/generations \
   -H "Authorization: Bearer your-api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -24,7 +24,7 @@ curl -X POST https://api.qclawrouter.com/v1/video/generations \
 ```
 
 ```bash 图生视频
-curl -X POST https://api.qclawrouter.com/v1/video/generations \
+curl -X POST https://api.yourapi.com/v1/video/generations \
   -H "Authorization: Bearer your-api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -39,7 +39,7 @@ curl -X POST https://api.qclawrouter.com/v1/video/generations \
 import requests
 
 response = requests.post(
-    "https://api.qclawrouter.com/v1/video/generations",
+    "https://api.yourapi.com/v1/video/generations",
     headers={"Authorization": "Bearer your-api-key"},
     json={
         "model": "sora-2-official",
@@ -113,7 +113,7 @@ print("任务ID:", task["id"])
   "task_id": "task_video_abc123",
   "status": "completed",
   "output": {
-    "url": "https://cdn.qclawrouter.com/videos/abc123.mp4",
+    "url": "https://cdn.yourapi.com/videos/abc123.mp4",
     "duration": 5,
     "resolution": "1080p"
   }

@@ -1,12 +1,12 @@
 ---
 title: "Anthropic 格式"
 description: "使用 Anthropic 原生格式调用 Claude 模型"
-api: "POST https://api.qclawrouter.com/v1/messages"
+api: "POST https://api.yourapi.com/v1/messages"
 ---
 
 ## 说明
 
-如果您使用 Anthropic 官方 SDK，可以直接将 `base_url` 改为 QClaw Router 地址，无需修改其他代码。
+如果您使用 Anthropic 官方 SDK，可以直接将 `base_url` 改为 YourAPI 地址，无需修改其他代码。
 
 ## 请求示例
 
@@ -14,7 +14,7 @@ api: "POST https://api.qclawrouter.com/v1/messages"
 import anthropic
 
 client = anthropic.Anthropic(
-    base_url="https://api.qclawrouter.com",
+    base_url="https://api.yourapi.com",
     api_key="your-api-key"
 )
 

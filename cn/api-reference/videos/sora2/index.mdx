@@ -1,0 +1,28 @@
+---
+title: "Sora2"
+description: "OpenAI Sora 2 视频生成模型，支持文生视频和图生视频，最高 1080P。"
+---
+
+## 概览
+
+OpenAI Sora 2 视频生成模型，支持文生视频和图生视频，最高 1080P。
+
+- **模型名称**：`sora-2`
+- **接口端点**：`POST /v1/video/generations`
+- **任务类型**：异步任务
+- **文件保留**：生成后 14 天自动删除，请及时下载
+
+## 快速开始
+
+```bash
+curl -X POST https://api.yourapi.com/v1/video/generations \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "sora-2",
+    "prompt": "一只猫在花园里玩耍，阳光明媚",
+    "duration": 5
+  }'
+```
+
+查看完整参数说明，请点击左侧导航中的接口文档。

@@ -1,7 +1,7 @@
 ---
 title: "Chat Completions API"
 description: "OpenAI 兼容的聊天补全接口，支持流式输出"
-api: "POST https://api.qclawrouter.com/v1/chat/completions"
+api: "POST https://api.yourapi.com/v1/chat/completions"
 ---
 
 ## 请求示例
@@ -11,7 +11,7 @@ api: "POST https://api.qclawrouter.com/v1/chat/completions"
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.qclawrouter.com/v1",
+    base_url="https://api.yourapi.com/v1",
     api_key="your-api-key"
 )
 
@@ -31,7 +31,7 @@ print(response.choices[0].message.content)
 import OpenAI from 'openai';
 
 const client = new OpenAI({
-  baseURL: 'https://api.qclawrouter.com/v1',
+  baseURL: 'https://api.yourapi.com/v1',
   apiKey: 'your-api-key',
 });
 
@@ -45,7 +45,7 @@ console.log(response.choices[0].message.content);
 ```
 
 ```bash cURL
-curl https://api.qclawrouter.com/v1/chat/completions \
+curl https://api.yourapi.com/v1/chat/completions \
   -H "Authorization: Bearer your-api-key" \
   -H "Content-Type: application/json" \
   -d '{

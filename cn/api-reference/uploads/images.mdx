@@ -1,7 +1,7 @@
 ---
 title: "上传图片"
 description: "上传图片文件用于图生图、图生视频等任务"
-api: "POST https://api.qclawrouter.com/v1/files"
+api: "POST https://api.yourapi.com/v1/files"
 ---
 
 ## 说明
@@ -11,7 +11,7 @@ api: "POST https://api.qclawrouter.com/v1/files"
 ## 请求示例
 
 ```bash cURL
-curl https://api.qclawrouter.com/v1/files \
+curl https://api.yourapi.com/v1/files \
   -H "Authorization: Bearer your-api-key" \
   -F "file=@/path/to/image.jpg" \
   -F "purpose=image"
@@ -22,7 +22,7 @@ import requests
 
 with open("image.jpg", "rb") as f:
     response = requests.post(
-        "https://api.qclawrouter.com/v1/files",
+        "https://api.yourapi.com/v1/files",
         headers={"Authorization": "Bearer your-api-key"},
         files={"file": f},
         data={"purpose": "image"}
@@ -37,7 +37,7 @@ print(url)  # 使用此 URL 传入其他 API
 ```json
 {
   "id": "file_xxx",
-  "url": "https://cdn.qclawrouter.com/uploads/xxx.jpg",
+  "url": "https://cdn.yourapi.com/uploads/xxx.jpg",
   "size": 102400,
   "created_at": 1677652288
 }

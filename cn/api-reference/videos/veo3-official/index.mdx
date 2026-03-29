@@ -1,0 +1,28 @@
+---
+title: "Veo3 Official"
+description: "通过官方 Google API 直连的 Veo 3 视频生成，支持 4K。"
+---
+
+## 概览
+
+通过官方 Google API 直连的 Veo 3 视频生成，支持 4K。
+
+- **模型名称**：`veo-3-official`
+- **接口端点**：`POST /v1/video/generations`
+- **任务类型**：异步任务
+- **文件保留**：生成后 14 天自动删除，请及时下载
+
+## 快速开始
+
+```bash
+curl -X POST https://api.yourapi.com/v1/video/generations \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "veo-3-official",
+    "prompt": "一只猫在花园里玩耍，阳光明媚",
+    "duration": 5
+  }'
+```
+
+查看完整参数说明，请点击左侧导航中的接口文档。

@@ -1,0 +1,27 @@
+---
+title: "Gemini-3-Pro-Image-preview（Nano banana Pro）"
+description: "Google Gemini 3 Pro 图像生成模型，支持文生图和图生图，最高 4K 分辨率。"
+---
+
+## 概览
+
+Google Gemini 3 Pro 图像生成模型，支持文生图和图生图，最高 4K 分辨率。
+
+- **模型名称**：`gemini-3-pro-image-preview`
+- **接口端点**：`POST /v1/images/generations`
+- **任务类型**：异步任务
+
+## 快速开始
+
+```bash
+curl -X POST https://api.yourapi.com/v1/images/generations \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "未来城市的天际线，霓虹灯光",
+    "n": 1
+  }'
+```
+
+查看完整参数说明，请点击左侧导航中的接口文档。

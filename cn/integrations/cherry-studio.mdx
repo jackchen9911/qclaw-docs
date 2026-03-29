@@ -1,6 +1,6 @@
 ---
 title: "Cherry Studio 配置指南"
-description: "在 Cherry Studio 中使用 QClaw Router 作为 API 后端"
+description: "在 Cherry Studio 中使用 YourAPI 作为 API 后端"
 ---
 
 ## 准备工作
@@ -10,11 +10,11 @@ description: "在 Cherry Studio 中使用 QClaw Router 作为 API 后端"
 1. **已安装 Cherry Studio**
    从 [Cherry Studio 官网](https://cherry-ai.com) 下载并安装适合您操作系统的版本
 
-2. **已获取 QClaw Router API 密钥**
-   登录 [QClaw Router 控制台](https://qclawrouter.com/dashboard) 获取您的 API 密钥（以 `sk-` 开头）
+2. **已获取 YourAPI API 密钥**
+   登录 [YourAPI 控制台](https://yourapi.com/dashboard) 获取您的 API 密钥（以 `sk-` 开头）
 
 <Tip>
-  如果还没有 QClaw Router 账户，请先在 [QClaw Router](https://qclawrouter.com) 注册并获取 API 密钥。
+  如果还没有 YourAPI 账户，请先在 [YourAPI](https://yourapi.com) 注册并获取 API 密钥。
 </Tip>
 
 ## 配置步骤
@@ -25,20 +25,20 @@ description: "在 Cherry Studio 中使用 QClaw Router 作为 API 后端"
     2. 点击左下角的 **设置** 图标（齿轮图标）
     3. 在设置页面中选择 **模型服务** 或 **提供商**
   </Step>
-  <Step title="添加 QClaw Router 提供商">
+  <Step title="添加 YourAPI 提供商">
     1. 点击提供商列表右上角的 **+** 按钮，添加新提供商
     2. 在弹出的对话框中：
-       - **名称**：填写 `QClaw Router`
+       - **名称**：填写 `YourAPI`
        - **提供商类型**：选择 **New API**（兼容 OpenAI 格式）
     3. 点击 **确认** 完成创建
   </Step>
   <Step title="填写 API 配置">
-    在 QClaw Router 提供商的配置页面中，填写以下信息：
+    在 YourAPI 提供商的配置页面中，填写以下信息：
 
     | 配置项 | 填写内容 |
     |--------|----------|
-    | **API 密钥** | 您的 QClaw Router API 密钥（`sk-xxxxxxxxxxxx`） |
-    | **API 地址** | `https://api.qclawrouter.com/v1/` |
+    | **API 密钥** | 您的 YourAPI API 密钥（`sk-xxxxxxxxxxxx`） |
+    | **API 地址** | `https://api.yourapi.com/v1/` |
   </Step>
   <Step title="添加模型">
     1. 在提供商配置页面，点击 **添加模型** 按钮
@@ -71,7 +71,7 @@ description: "在 Cherry Studio 中使用 QClaw Router 作为 API 后端"
 配置完成后：
 
 1. 返回 Cherry Studio 主界面
-2. 在对话框顶部的模型选择器中，选择刚才添加的 QClaw Router 模型
+2. 在对话框顶部的模型选择器中，选择刚才添加的 YourAPI 模型
 3. 开始对话
 
 ## 常见问题
@@ -80,12 +80,12 @@ description: "在 Cherry Studio 中使用 QClaw Router 作为 API 后端"
   <Accordion title="Q1: 连接测试失败？">
     **解决方案：**
     1. 检查 **API 密钥** 是否正确，确认以 `sk-` 开头
-    2. 确认 **API 地址** 填写为 `https://api.qclawrouter.com/v1/`（注意末尾的斜杠）
-    3. 在 [QClaw Router 控制台](https://qclawrouter.com/dashboard) 确认密钥未过期且账户余额充足
-    4. 检查网络连接，确保能访问 `https://api.qclawrouter.com`
+    2. 确认 **API 地址** 填写为 `https://api.yourapi.com/v1/`（注意末尾的斜杠）
+    3. 在 [YourAPI 控制台](https://yourapi.com/dashboard) 确认密钥未过期且账户余额充足
+    4. 检查网络连接，确保能访问 `https://api.yourapi.com`
   </Accordion>
   <Accordion title="Q2: 模型列表中找不到我的模型？">
-    Cherry Studio 使用手动添加模型的方式，直接在添加模型时输入模型 ID 即可。可在 [QClaw Router 模型列表](/docs/cn/api-reference/chat/models) 查看所有可用模型 ID。
+    Cherry Studio 使用手动添加模型的方式，直接在添加模型时输入模型 ID 即可。可在 [YourAPI 模型列表](/docs/cn/api-reference/chat/models) 查看所有可用模型 ID。
   </Accordion>
   <Accordion title="Q3: 常见错误码说明">
     | 错误信息 | 原因 | 解决方法 |
@@ -99,7 +99,7 @@ description: "在 Cherry Studio 中使用 QClaw Router 作为 API 后端"
 
 ## 支持与帮助
 
-- 📚 [QClaw Router 文档中心](https://docs.qclawrouter.com)
+- 📚 [YourAPI 文档中心](https://docs.yourapi.com)
 - 📚 [Cherry Studio 官方文档](https://docs.cherry-ai.com)
-- 💬 [Discord 社区](https://discord.gg/qclawrouter)
-- 🐦 [Twitter @qclawrouter](https://x.com/qclawrouter)
+- 💬 [Discord 社区](https://discord.gg/yourapi)
+- 🐦 [Twitter @yourapi](https://x.com/yourapi)
