@@ -1,0 +1,30 @@
+---
+title: "Anthropic 格式"
+description: "使用 Anthropic 原生格式调用 Claude 模型"
+api: "POST https://api.qclawrouter.com/v1/messages"
+---
+
+## 说明
+
+如果您使用 Anthropic 官方 SDK，可以直接将 `base_url` 改为 QClaw Router 地址，无需修改其他代码。
+
+## 请求示例
+
+```python Python
+import anthropic
+
+client = anthropic.Anthropic(
+    base_url="https://api.qclawrouter.com",
+    api_key="your-api-key"
+)
+
+message = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=1024,
+    messages=[
+        {"role": "user", "content": "Hello!"}
+    ]
+)
+
+print(message.content[0].text)
+```

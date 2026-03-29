@@ -1,0 +1,36 @@
+---
+title: "查询令牌余额"
+description: "查询指定令牌（API Key）的余额和使用情况"
+api: "GET https://api.qclawrouter.com/v1/dashboard/billing/credit_grants"
+---
+
+## 请求示例
+
+```bash cURL
+curl https://api.qclawrouter.com/v1/dashboard/billing/credit_grants \
+  -H "Authorization: Bearer your-api-key"
+```
+
+```python Python
+import requests
+
+response = requests.get(
+    "https://api.qclawrouter.com/v1/dashboard/billing/credit_grants",
+    headers={"Authorization": "Bearer your-api-key"}
+)
+print(response.json())
+```
+
+## 返回示例
+
+```json
+{
+  "object": "credit_summary",
+  "total_granted": 10.00,
+  "total_used": 2.50,
+  "total_available": 7.50,
+  "grants": {
+    "data": []
+  }
+}
+```

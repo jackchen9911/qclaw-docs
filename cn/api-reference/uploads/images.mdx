@@ -1,0 +1,44 @@
+---
+title: "上传图片"
+description: "上传图片文件用于图生图、图生视频等任务"
+api: "POST https://api.qclawrouter.com/v1/files"
+---
+
+## 说明
+
+上传本地图片文件，获取可在 API 中使用的 URL。
+
+## 请求示例
+
+```bash cURL
+curl https://api.qclawrouter.com/v1/files \
+  -H "Authorization: Bearer your-api-key" \
+  -F "file=@/path/to/image.jpg" \
+  -F "purpose=image"
+```
+
+```python Python
+import requests
+
+with open("image.jpg", "rb") as f:
+    response = requests.post(
+        "https://api.qclawrouter.com/v1/files",
+        headers={"Authorization": "Bearer your-api-key"},
+        files={"file": f},
+        data={"purpose": "image"}
+    )
+
+url = response.json()["url"]
+print(url)  # 使用此 URL 传入其他 API
+```
+
+## 返回示例
+
+```json
+{
+  "id": "file_xxx",
+  "url": "https://cdn.qclawrouter.com/uploads/xxx.jpg",
+  "size": 102400,
+  "created_at": 1677652288
+}
+```

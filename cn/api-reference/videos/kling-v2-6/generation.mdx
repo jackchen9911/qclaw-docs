@@ -1,0 +1,122 @@
+---
+title: "Kling v2.6 视频生成"
+description: "使用快手 Kling v2.6 模型生成视频"
+api: "POST https://api.qclawrouter.com/v1/video/generations"
+---
+
+- 快手 Kling v2.6 视频生成模型
+- 支持文生视频、图生视频
+- 高质量电影级画面
+- 支持运动控制参数
+- 异步任务管理，通过任务 ID 查询结果
+
+## 请求示例
+
+<CodeGroup>
+```bash 文生视频
+curl -X POST https://api.qclawrouter.com/v1/video/generations \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "kling-v2.6",
+    "prompt": "一只猫在花园里玩耍，阳光明媚",
+    "duration": 5
+  }'
+```
+
+```bash 图生视频
+curl -X POST https://api.qclawrouter.com/v1/video/generations \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "kling-v2.6",
+    "prompt": "让图片中的场景动起来",
+    "duration": 5,
+    "image_url": "https://example.com/your-image.jpg"
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.qclawrouter.com/v1/video/generations",
+    headers={"Authorization": "Bearer your-api-key"},
+    json={
+        "model": "kling-v2.6",
+        "prompt": "一只猫在花园里玩耍",
+        "duration": 5
+    }
+)
+
+task = response.json()
+print("任务ID:", task["id"])
+# 使用 task_id 轮询结果
+```
+</CodeGroup>
+
+## 请求参数
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `model` | string | ✓ | - | 模型名称：`kling-v2.6` |
+| `prompt` | string | ✓ | - | 视频描述 |
+| `duration` | integer |  | 5 | 视频时长（秒），支持：5, 10 |
+| `resolution` | string |  | 1080p | 分辨率：720p / 1080p |
+| `image_url` | string |  | - | 参考图 URL |
+| `callback_url` | string |  | - | Webhook 回调地址，任务完成后自动通知 |
+
+## 返回示例
+
+```json
+{
+  "id": "task_video_abc123",
+  "object": "generation.task",
+  "model": "kling-v2.6",
+  "status": "queued",
+  "progress": 0,
+  "created_at": 1703884800
+}
+```
+
+## 任务状态
+
+| 状态 | 说明 |
+|------|------|
+| `queued` | 排队等待处理 |
+| `in_progress` | 处理中 |
+| `completed` | 成功完成 |
+| `failed` | 失败 |
+
+<Note>
+  视频生成为异步任务，提交成功后使用返回的 task_id 轮询结果，详见[获取视频任务状态](/docs/cn/api-reference/task/get-video-task)。
+</Note>
+
+<Warning>
+  生成的视频文件保存 **14 天**后自动删除，请及时下载保存。
+</Warning>
+
+## Webhook 回调
+
+如需任务完成后自动通知，在请求中加入 `callback_url` 参数：
+
+```json
+{
+  "model": "kling-v2.6",
+  "prompt": "...",
+  "callback_url": "https://your-server.com/webhook"
+}
+```
+
+回调请求体：
+```json
+{
+  "task_id": "task_video_abc123",
+  "status": "completed",
+  "output": {
+    "url": "https://cdn.qclawrouter.com/videos/abc123.mp4",
+    "duration": 5,
+    "resolution": "1080p"
+  }
+}
+```

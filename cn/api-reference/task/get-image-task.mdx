@@ -1,0 +1,70 @@
+---
+title: "获取图片任务状态"
+description: "查询图像生成异步任务的状态和结果"
+api: "GET https://api.qclawrouter.com/v1/task/{task_id}"
+---
+
+## 说明
+
+图像生成任务提交后，使用此接口轮询任务状态，直到状态变为 `succeeded`。
+
+## 请求示例
+
+```bash cURL
+curl https://api.qclawrouter.com/v1/task/task_xxx \
+  -H "Authorization: Bearer your-api-key"
+```
+
+```python Python
+import requests
+import time
+
+def wait_for_image(task_id, api_key):
+    headers = {"Authorization": f"Bearer {api_key}"}
+    while True:
+        resp = requests.get(
+            f"https://api.qclawrouter.com/v1/task/{task_id}",
+            headers=headers
+        )
+        data = resp.json()
+        if data["status"] == "succeeded":
+            return data["output"]["url"]
+        elif data["status"] == "failed":
+            raise Exception(data["error"])
+        time.sleep(3)  # 每3秒轮询一次
+```
+
+## 返回示例
+
+**处理中：**
+```json
+{
+  "task_id": "task_xxx",
+  "status": "processing",
+  "progress": 50
+}
+```
+
+**完成：**
+```json
+{
+  "task_id": "task_xxx",
+  "status": "succeeded",
+  "output": {
+    "url": "https://cdn.qclawrouter.com/images/xxx.png"
+  }
+}
+```
+
+## 任务状态说明
+
+| 状态 | 说明 |
+|------|------|
+| `pending` | 等待处理 |
+| `processing` | 处理中 |
+| `succeeded` | 生成成功 |
+| `failed` | 生成失败 |
+
+<Warning>
+  生成的图片文件保存 14 天后自动删除，请及时下载保存。
+</Warning>

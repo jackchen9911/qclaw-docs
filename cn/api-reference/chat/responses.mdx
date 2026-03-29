@@ -1,0 +1,21 @@
+---
+title: "Responses API"
+description: "OpenAI 新一代 Agentic API，支持函数调用、内置工具"
+api: "POST https://api.qclawrouter.com/v1/responses"
+---
+
+## 说明
+
+Responses API 是 OpenAI 的新一代接口，支持服务端多轮上下文管理。部分模型仅支持此格式，见[模型一览](/docs/cn/api-reference/chat/models)。
+
+## 请求示例
+
+```bash cURL
+curl https://api.qclawrouter.com/v1/responses \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gpt-5-pro-official",
+    "input": "Hello!"
+  }'
+```

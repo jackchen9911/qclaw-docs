@@ -1,0 +1,172 @@
+---
+title: "QClaw Router — OpenAI 兼容 API 网关（GPT-5、Claude、Gemini）"
+description: "OpenAI 兼容 API，支持 GPT-5、Claude、Gemini。多供应商路由、透明定价、低延迟。企业 SLA、SDK 支持、按需付费。"
+---
+
+统一的 OpenAI 兼容端点，支持 GPT-5、Claude 和 Gemini。只需将 Base URL 更改为 `https://api.qclawrouter.com/v1`，即可在几分钟内从 OpenAI 迁移——保留现有 SDK，无需重写代码。多供应商路由确保低延迟和高可用性。透明定价、企业 SLA 和全球 CDN 加速。
+
+## 快速开始
+
+<CardGroup cols={3}>
+  <Card title="聊天补全 API" icon="message" href="/docs/cn/api-reference/chat/chat">
+    流式支持和低延迟
+  </Card>
+  <Card title="图像生成 API" icon="image" href="/docs/cn/api-reference/image/gpt-4o-image">
+    文本到图像生成
+  </Card>
+  <Card title="视频生成 API" icon="video" href="/docs/cn/api-reference/video/sora2">
+    异步任务管理，支持 Webhook
+  </Card>
+</CardGroup>
+
+## OpenAI 兼容端点
+
+QClaw Router 提供 OpenAI 风格的端点，实现无缝迁移。只需更改 Base URL 并继续使用现有 SDK。所有接口遵循 OpenAI 标准，扩展支持 Claude、Gemini、Sora 和 VEO 模型。
+
+## 平台优势
+
+<CardGroup cols={2}>
+  <Card title="透明定价" icon="credit-card">
+    按需付费，无需订阅。所有模型的每 Token 价格清晰透明，比官方提供商价格更实惠，同时保持相同的质量和低延迟。
+    - 所有模型的每 Token 价格清晰透明
+    - 企业用量享受批量折扣
+    - 无隐藏费用
+    - 只为实际使用付费
+  </Card>
+  <Card title="多供应商路由与企业 SLA" icon="route">
+    内置智能路由跨多个 LLM 供应商，确保高可用性和低延迟。当一个供应商出现问题时，请求会自动路由到备用供应商，服务不中断。
+  </Card>
+  <Card title="99.9% 可用性 SLA" icon="shield-check">
+    企业级可靠性，自动故障转移。多供应商路由确保您的请求始终以最低延迟得到服务。
+  </Card>
+  <Card title="全球 CDN 加速" icon="globe">
+    全球边缘节点提供最低延迟。优化路由减少响应时间，全球范围内改善用户体验。
+  </Card>
+  <Card title="速率限制管理" icon="gauge">
+    跨供应商自动处理速率限制。智能请求分配防止节流，确保平稳运行。
+  </Card>
+  <Card title="实时状态监控" icon="chart-line">
+    监控端点健康状态和性能。通过 Webhook 通知跟踪图像和视频创建的异步任务进度。
+  </Card>
+</CardGroup>
+
+## SDK 与代码示例
+
+Python、Node.js 和 Java 官方 SDK。所有 SDK 与 OpenAI 兼容，只需更改 Base URL 配置即可无缝迁移。
+
+<CodeGroup>
+
+```python Python SDK
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://api.qclawrouter.com/v1",
+    api_key="your-api-key"
+)
+
+response = client.chat.completions.create(
+    model="claude-sonnet-4-6",
+    messages=[
+        {"role": "user", "content": "Hello!"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+```javascript Node.js SDK
+import OpenAI from 'openai';
+
+const client = new OpenAI({
+  baseURL: 'https://api.qclawrouter.com/v1',
+  apiKey: 'your-api-key',
+});
+
+const response = await client.chat.completions.create({
+  model: 'gpt-5',
+  messages: [{ role: 'user', content: 'Hello!' }],
+});
+
+console.log(response.choices[0].message.content);
+```
+
+```bash cURL
+curl https://api.qclawrouter.com/v1/chat/completions \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gemini-3-pro",
+    "messages": [
+      {"role": "user", "content": "Hello!"}
+    ]
+  }'
+```
+
+</CodeGroup>
+
+## 从 OpenAI 迁移
+
+5 分钟内切换到 QClaw Router。无需重写代码——只需更改 Base URL 和 API Key。
+
+<Steps>
+  <Step title="获取 API Key">
+    注册 QClaw Router 并从 [控制台 Dashboard](https://qclawrouter.com/dashboard) 获取您的 API Key。
+  </Step>
+  <Step title="更新 Base URL">
+    将 OpenAI Base URL 更改为 QClaw Router 端点。您现有的 SDK 集成无需修改即可工作。
+    ```
+    https://api.qclawrouter.com/v1
+    ```
+  </Step>
+  <Step title="测试端点">
+    使用新的 Base URL 运行现有代码。所有 OpenAI 兼容端点以相同格式响应。在控制台 Dashboard 中检查延迟和速率限制。
+  </Step>
+</Steps>
+
+## 统一端点支持的模型
+
+通过一个 OpenAI 兼容网关访问领先的 LLM 供应商。所有模型均以一致的请求/响应格式提供。
+
+### 聊天补全模型
+
+用于聊天、补全和代码任务的领先语言模型：
+
+- **GPT-5**：OpenAI 旗舰模型，增强推理能力
+- **GPT-4o 和 GPT-4o Mini**：平衡性能和成本的多模态模型
+- **Claude Sonnet 4.6 和 Haiku 4.5**：Anthropic 复杂推理模型
+- **Gemini 3 Pro 和 Flash**：Google 多模态模型
+
+### 图像生成模型
+
+从文本提示生成图像：
+
+- **GPT-4o Image**：OpenAI 图像生成模型
+- **Gemini 3 Pro Image**：Google 高效图像模型
+- **Flux Kontext**：Black Forest Labs 图像编辑
+- **Seedream 系列**：字节跳动高质量图像
+
+### 视频生成模型
+
+视频生成，支持异步任务跟踪和 Webhook 回调：
+
+- **Sora 2**：OpenAI 视频生成模型
+- **VEO 3**：Google 视频生成，含音频同步
+- **Kling v3**：快手视频生成，运动控制
+- **Wan 2.6**：极速视频生成
+
+## 常见问题
+
+<AccordionGroup>
+  <Accordion title="如何从 OpenAI 迁移？">
+    只需将 Base URL 更改为 `https://api.qclawrouter.com/v1` 并使用您的 QClaw Router Key。保留现有 SDK——无需重写代码。迁移通常在 5 分钟内完成。
+  </Accordion>
+  <Accordion title="SLA 包含什么？">
+    我们的企业 SLA 包括 99.9% 可用性保证、全球 CDN 加速、多供应商路由自动故障转移以及实时状态监控。速率限制管理和 Webhook 支持均已包含。
+  </Accordion>
+  <Accordion title="价格与 OpenAI 相比如何？">
+    QClaw Router 提供透明的每 Token 定价，比官方供应商价格更实惠。按需付费无需订阅，企业用量享受批量折扣，无隐藏费用。
+  </Accordion>
+  <Accordion title="延迟和性能如何？">
+    通过全球 CDN 加速和智能多供应商路由保证低延迟。全球边缘节点确保最佳响应时间。实时状态监控让您跟踪性能。
+  </Accordion>
+</AccordionGroup>

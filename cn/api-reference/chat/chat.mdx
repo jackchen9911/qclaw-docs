@@ -1,0 +1,96 @@
+---
+title: "Chat Completions API"
+description: "OpenAI 兼容的聊天补全接口，支持流式输出"
+api: "POST https://api.qclawrouter.com/v1/chat/completions"
+---
+
+## 请求示例
+
+<CodeGroup>
+```python Python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://api.qclawrouter.com/v1",
+    api_key="your-api-key"
+)
+
+response = client.chat.completions.create(
+    model="claude-sonnet-4-6",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Hello!"}
+    ],
+    stream=False
+)
+
+print(response.choices[0].message.content)
+```
+
+```javascript Node.js
+import OpenAI from 'openai';
+
+const client = new OpenAI({
+  baseURL: 'https://api.qclawrouter.com/v1',
+  apiKey: 'your-api-key',
+});
+
+const response = await client.chat.completions.create({
+  model: 'gpt-5',
+  messages: [{ role: 'user', content: 'Hello!' }],
+  stream: false,
+});
+
+console.log(response.choices[0].message.content);
+```
+
+```bash cURL
+curl https://api.qclawrouter.com/v1/chat/completions \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gemini-3-pro",
+    "messages": [
+      {"role": "user", "content": "Hello!"}
+    ],
+    "stream": false
+  }'
+```
+</CodeGroup>
+
+## 请求参数
+
+| 参数 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `model` | string | ✓ | 模型 ID，见[模型一览](/docs/cn/api-reference/chat/models) |
+| `messages` | array | ✓ | 对话历史数组 |
+| `stream` | boolean |  | 是否流式输出，默认 false |
+| `temperature` | number |  | 随机性，0-2，默认 1 |
+| `max_tokens` | integer |  | 最大输出 token 数 |
+| `top_p` | number |  | 核采样概率 |
+
+## 返回示例
+
+```json
+{
+  "id": "chatcmpl-xxx",
+  "object": "chat.completion",
+  "created": 1677652288,
+  "model": "claude-sonnet-4-6",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Hello! How can I help you today?"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 10,
+    "completion_tokens": 20,
+    "total_tokens": 30
+  }
+}
+```

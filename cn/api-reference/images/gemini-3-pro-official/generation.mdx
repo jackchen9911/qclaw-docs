@@ -1,0 +1,106 @@
+---
+title: "Gemini-3-Pro-Image Official"
+description: "通过官方 Google API 直连的 Gemini 3 Pro 图像生成，稳定性最高"
+api: "POST https://api.qclawrouter.com/v1/images/generations"
+---
+
+- 官方 Google API 直连，稳定性与合规性最高
+- 支持文生图、图生图
+- 最高 4K 分辨率输出
+- 异步任务管理，通过任务 ID 查询结果
+
+<Warning>
+  **重要变更**：不再支持在 `image_urls` 中直接传入 base64 图片数据。请先使用[上传图片接口](/docs/cn/api-reference/uploads/images)上传图片，获取 URL 后再调用本接口。
+</Warning>
+
+## 请求示例
+
+<CodeGroup>
+```bash 文生图
+curl -X POST https://api.qclawrouter.com/v1/images/generations \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gemini-3-pro-image-official",
+    "prompt": "未来城市的天际线，霓虹灯光",
+    "size": "16:9",
+    "n": 1,
+    "metadata": {
+      "resolution": "1K",
+      "orientation": "landscape"
+    }
+  }'
+```
+
+```bash 图生图
+curl -X POST https://api.qclawrouter.com/v1/images/generations \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gemini-3-pro-image-official",
+    "prompt": "将图片转换为水彩画风格",
+    "size": "1:1",
+    "n": 1,
+    "image_urls": [
+      {"url": "https://example.com/your-image.jpg"}
+    ]
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.qclawrouter.com/v1/images/generations",
+    headers={"Authorization": "Bearer your-api-key"},
+    json={
+        "model": "gemini-3-pro-image-official",
+        "prompt": "未来城市的天际线，霓虹灯光",
+        "size": "16:9",
+        "n": 1,
+        "metadata": {"resolution": "1K"}
+    }
+)
+
+task = response.json()
+print("任务ID:", task["id"])
+```
+</CodeGroup>
+
+## 请求参数
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `model` | string | ✓ | - | 模型名称：`gemini-3-pro-image-official` |
+| `prompt` | string | ✓ | - | 图像描述，最长 1000 字符 |
+| `size` | string |  | `1:1` | 宽高比，支持：1:1, 3:2, 2:3, 4:3, 3:4, 16:9, 9:16, 21:9 |
+| `n` | integer |  | `1` | 生成数量，必须为纯数字 |
+| `metadata.resolution` | string |  | `1K` | 分辨率：`0.5K` / `1K` / `2K` / `4K` |
+| `metadata.orientation` | string |  | - | 方向：`landscape` / `portrait` |
+| `image_urls` | array |  | - | 参考图 URL 列表，最多 14 张，用于图生图 |
+
+
+## 返回示例
+
+```json
+{
+  "id": "task_img_abc123def456",
+  "object": "generation.task",
+  "model": "gemini-3-pro-image-official",
+  "status": "queued",
+  "progress": 0,
+  "created_at": 1703884800,
+  "metadata": {}
+}
+```
+
+## 任务状态
+
+| 状态 | 说明 |
+|------|------|
+| `queued` | 排队等待处理 |
+| `in_progress` | 处理中 |
+| `completed` | 成功完成 |
+| `failed` | 失败 |
+
+提交后使用 task_id 查询结果，详见[获取图片任务状态](/docs/cn/api-reference/task/get-image-task)。

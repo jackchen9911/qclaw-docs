@@ -1,0 +1,33 @@
+---
+title: "创建令牌"
+description: "通过 API 创建新的访问令牌"
+api: "POST https://api.qclawrouter.com/v1/token"
+---
+
+## 说明
+
+通过管理员 API Key 创建新的用户令牌，适用于自动化管理场景。
+
+## 请求示例
+
+```bash cURL
+curl -X POST https://api.qclawrouter.com/v1/token \
+  -H "Authorization: Bearer your-admin-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "my-token",
+    "quota": 1000000
+  }'
+```
+
+## 返回示例
+
+```json
+{
+  "id": 1,
+  "name": "my-token",
+  "key": "sk-xxxxxxxxxxxx",
+  "quota": 1000000,
+  "created_time": 1677652288
+}
+```

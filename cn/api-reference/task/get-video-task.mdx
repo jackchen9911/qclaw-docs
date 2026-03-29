@@ -1,0 +1,54 @@
+---
+title: "获取视频任务状态"
+description: "查询视频生成异步任务的状态和结果"
+api: "GET https://api.qclawrouter.com/v1/task/{task_id}"
+---
+
+## 说明
+
+视频生成任务提交后，使用此接口轮询任务状态。视频生成通常需要 30 秒到几分钟不等。
+
+## 请求示例
+
+```bash cURL
+curl https://api.qclawrouter.com/v1/task/task_xxx \
+  -H "Authorization: Bearer your-api-key"
+```
+
+```python Python
+import requests
+import time
+
+def wait_for_video(task_id, api_key):
+    headers = {"Authorization": f"Bearer {api_key}"}
+    while True:
+        resp = requests.get(
+            f"https://api.qclawrouter.com/v1/task/{task_id}",
+            headers=headers
+        )
+        data = resp.json()
+        if data["status"] == "succeeded":
+            return data["output"]["url"]
+        elif data["status"] == "failed":
+            raise Exception(data["error"])
+        time.sleep(5)  # 每5秒轮询一次
+```
+
+## 返回示例
+
+**完成：**
+```json
+{
+  "task_id": "task_xxx",
+  "status": "succeeded",
+  "output": {
+    "url": "https://cdn.qclawrouter.com/videos/xxx.mp4",
+    "duration": 5,
+    "resolution": "1080p"
+  }
+}
+```
+
+<Warning>
+  生成的视频文件保存 14 天后自动删除，请及时下载保存。
+</Warning>

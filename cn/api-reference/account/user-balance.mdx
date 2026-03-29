@@ -1,0 +1,24 @@
+---
+title: "查询用户余额"
+description: "查询当前用户账户的总余额"
+api: "GET https://api.qclawrouter.com/v1/user/balance"
+---
+
+## 请求示例
+
+```bash cURL
+curl https://api.qclawrouter.com/v1/user/balance \
+  -H "Authorization: Bearer your-api-key"
+```
+
+## 返回示例
+
+```json
+{
+  "object": "user_balance",
+  "total_balance": 10.50,
+  "used_balance": 2.30,
+  "remaining_balance": 8.20,
+  "currency": "USD"
+}
+```
