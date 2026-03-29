@@ -1,0 +1,32 @@
+---
+title: "Gemini-3-Pro-Image-preview（Nano banana Pro）"
+description: "使用 Gemini-3-Pro-Image-preview（Nano banana Pro） 生成图像"
+---
+
+## 说明
+
+Gemini-3-Pro-Image-preview（Nano banana Pro） 图像生成模型，通过异步任务方式返回结果。
+
+## 请求示例
+
+```bash cURL
+curl https://api.yourapi.com/v1/images/generations \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gemini-3-pro-image-preview",
+    "prompt": "A beautiful sunset over the ocean",
+    "n": 1
+  }'
+```
+
+## 返回示例
+
+```json
+{
+  "task_id": "task_xxx",
+  "status": "pending"
+}
+```
+
+提交后使用 task_id 查询结果，详见[获取图片任务状态](/docs/cn/api-reference/task/get-image-task)。
